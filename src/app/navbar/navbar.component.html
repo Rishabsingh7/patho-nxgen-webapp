@@ -1,0 +1,28 @@
+<nav class="navbar" [class.scrolled]="scrolled">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Logo">
+    </div>
+
+    <div class="menu-icon" (click)="toggleMenu()">☰</div>
+
+    <ul class="nav-links" [class.active]="menuOpen">
+      <li><a href="#" (click)="setActive('Home')" [class.active]="activeLink==='Home'">Home</a></li>
+      <li><a href="about" (click)="setActive('About Us')" [class.active]="activeLink==='About Us'">About Us</a></li>
+      <li><a href="our-products" (click)="setActive('Our Products')" [class.active]="activeLink==='Our Products'">Our Products</a></li>
+      <li><a href="#" (click)="setActive('Privacy Policy')" [class.active]="activeLink==='Privacy Policy'">Privacy Policy</a></li>
+      <li><a href="#" (click)="setActive('Cancellation & Refund')" [class.active]="activeLink==='Cancellation & Refund'">Cancellation & Refund</a></li>
+      <li><a href="#" (click)="setActive('Terms Of Use')" [class.active]="activeLink==='Terms Of Use'">Terms Of Use</a></li>
+      <li><a href="#" (click)="setActive('Contact Us')" [class.active]="activeLink==='Contact Us'">Contact Us</a></li>
+      <li><a href="#" (click)="setActive('Contact Us')" [class.active]="activeLink==='Contact Us'"></a></li>
+      <li><a href="#" (click)="setActive('Contact Us')" [class.active]="activeLink==='Contact Us'"></a></li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="navbar-spacer"></div>
+
+<main>
+  <!-- Page content -->
+</main>

@@ -1,0 +1,92 @@
+/* ---------- NAVBAR ---------- */
+.navbar {
+  background-color: #19c1c6;
+  padding: 0 20px;
+  width: 100%;
+  position: fixed;   /* Fix at top */
+  top: 0;            
+  left: 0;
+  z-index: 1000;     /* Stay above other elements */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.navbar.scrolled {
+  background-color: rgba(25, 193, 198, 0.9); /* slightly transparent on scroll */
+  box-shadow: 0 2px 8px rgba(18, 18, 18, 0.2);     /* shadow effect */
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.logo img {
+  height: 45px;
+}
+
+/* ---------- NAV LINKS ---------- */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  padding-left: 30px;
+  transition: max-height 0.3s ease;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links li a.active {
+  color: black;
+}
+
+.nav-links li a:hover {
+  color: #f0f0f0;
+}
+
+/* ---------- HAMBURGER MENU ---------- */
+.menu-icon {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ---------- MOBILE & TABLET ---------- */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    max-height: 0; /* collapsed by default */
+    overflow: hidden;
+    background-color: #19c1c6;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    max-height: 500px; /* expand when menuOpen = true */
+  }
+
+  .nav-links li {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    color: white;
+  }
+}
+
+/* ---------- SPACER FOR CONTENT ---------- */
+.navbar-spacer {
+  height: 70px; /* same as navbar height */
+}

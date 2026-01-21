@@ -1,0 +1,76 @@
+/* Container */
+.products-container {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;   /* center heading */
+}
+
+/* Title */
+.products-title {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+/* Grid layout */
+.products-grid {
+  display: flex;
+  justify-content: center;   /* center boxes */
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Product box */
+.product-card {
+  width: 300px;            /* increased size */
+  height: 240px;
+  border: 2px solid #19c1c6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+/* Image */
+.product-card img {
+  width: 80px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Text */
+.product-card p {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+/* Hover effect */
+.product-card:hover {
+  background-color: #19c1c6;  /* box color change */
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Text & image color on hover */
+.product-card:hover p {
+  color: #ffffff;
+}
+
+.product-card:hover img {
+  filter: brightness(0) invert(1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-card {
+    width: 90%;
+    max-width: 320px;
+  }
+}

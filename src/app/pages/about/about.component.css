@@ -1,0 +1,15 @@
+.about {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+}
+
+.about h1 {
+  color: #19c1c6;
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 15px;
+  }
+}
