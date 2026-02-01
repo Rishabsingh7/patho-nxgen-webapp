@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  background: #19c1c6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 15px;
+  color: #19c1c6;
+  cursor: pointer;
+}

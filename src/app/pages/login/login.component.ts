@@ -1,41 +1,48 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, RegisterComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
-  // Emit event to parent to close popup
   @Output() close = new EventEmitter<void>();
+  showRegister = false;
 
-  // Input fields
-  userId: string = '';
-  password: string = '';
-  rememberMe: boolean = false;
+  loginForm!: FormGroup; // initialize later in ngOnInit
 
-  // Close the popup
-  closePopup() {
-    this.close.emit();
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  // Login function (you can add real auth here)
-  login() {
-    if (!this.userId || !this.password) {
-      alert('Please enter User ID and Password');
-      return;
+  get email() { return this.loginForm.get('email')!; }
+  get password() { return this.loginForm.get('password')!; }
+
+  submitLogin() {
+    if (this.loginForm.valid) {
+      alert('Login successful');
+      this.close.emit();
+    } else {
+      this.loginForm.markAllAsTouched();
     }
+  }
 
-    console.log('Login Info:', {
-      userId: this.userId,
-      password: this.password,
-      rememberMe: this.rememberMe
-    });
+  openRegister() {
+    this.showRegister = true;
+  }
 
-    // For demo, just close popup after login
-    alert(`Welcome, ${this.userId}!`);
-    this.closePopup();
+  backToLogin() {
+    this.showRegister = false;
   }
 }

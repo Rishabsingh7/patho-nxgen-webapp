@@ -1,29 +1,35 @@
-<div class="popup-bg">
-  <div class="popup-box">
+<div class="overlay">
+  <div class="card">
 
-    <!-- Close button -->
-    <span class="close" (click)="closePopup()">×</span>
+    <!-- LOGIN FORM -->
+    <form *ngIf="!showRegister" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+      <h2>Login Page</h2>
 
-    <!-- Title -->
-    <h2 class="title">
-      <span class="red">LOGIN</span><span class="green">PAGE</span>
-    </h2>
+      <input type="email" placeholder="Email" formControlName="email">
+      <small *ngIf="email.touched && email.invalid">
+        Enter a valid email
+      </small>
 
-    <!-- Inputs -->
-    <input type="text" placeholder="User ID">
-    <input type="password" placeholder="Password">
+      <input type="password" placeholder="Password" formControlName="password">
+      <small *ngIf="password.touched && password.invalid">
+        Minimum 6 characters
+      </small>
 
-    <!-- Options -->
-    <div class="options">
-      <label><input type="checkbox"> Remember me</label>
-      <a href="#">Forgot Password?</a>
-    </div>
+      <button type="submit">Login</button>
 
-    <!-- Button -->
-    <button>LOG IN</button>
+      <p class="switch">
+        New here? <span (click)="openRegister()">Create account</span>
+      </p>
 
-    <!-- Contact -->
-    <p class="contact">📞 xxxxxxxxxx</p>
+      <span class="close" (click)="close.emit()">✕</span>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <app-register
+      *ngIf="showRegister"
+      (registered)="backToLogin()"
+      (close)="close.emit()">
+    </app-register>
 
   </div>
 </div>

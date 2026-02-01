@@ -1,17 +1,16 @@
 <section class="products-container">
-
   <h1 class="products-title">OUR COMPANY PRODUCT</h1>
 
   <div class="products-grid">
-
     <div class="product-card" (click)="openLoginForm()">
       <img src="assets/path-lab.png" alt="Path Lab">
       <p>Path Lab</p>
     </div>
-
   </div>
-
 </section>
 
-<!-- LOGIN POPUP -->
-<app-login *ngIf="showLoginForm" (close)="closeLoginForm()"></app-login>
+<!-- LOGIN / REGISTER POPUP -->
+<app-login
+  *ngIf="showLoginForm"
+  (close)="closeLoginForm()">
+</app-login>

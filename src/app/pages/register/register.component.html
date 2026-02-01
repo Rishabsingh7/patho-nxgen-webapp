@@ -1,0 +1,32 @@
+<form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+  <h2>Create Account</h2>
+
+  <input placeholder="Full Name" formControlName="fullName">
+  <small *ngIf="registerForm.get('fullName')?.touched && registerForm.get('fullName')?.invalid">
+    Full Name is required
+  </small>
+
+  <input placeholder="Phone Number" formControlName="phone">
+  <small *ngIf="registerForm.get('phone')?.touched && registerForm.get('phone')?.invalid">
+    Enter a valid 10-digit phone number
+  </small>
+
+  <input placeholder="Email" formControlName="email">
+  <small *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+    Enter a valid email
+  </small>
+
+  <input type="password" placeholder="Password" formControlName="password">
+  <small *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+    Minimum 6 characters
+  </small>
+
+  <input type="password" placeholder="Confirm Password" formControlName="confirmPassword">
+  <small *ngIf="registerForm.errors?.['mismatch']">
+    Passwords do not match
+  </small>
+
+  <button type="submit">Register</button>
+
+  <p class="switch" (click)="registered.emit()">Back to login</p>
+</form>
